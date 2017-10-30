@@ -52,6 +52,15 @@ data "aws_iam_policy_document" "fdroid_policy" {
       "arn:aws:logs:*:*:*",
     ]
   }
+
+  # Required permissions to use DynamoDB
+  statement = {
+    actions = [
+      "dynamodb:*",
+    ]
+
+    resources = ["*"]
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "fdroid" {
